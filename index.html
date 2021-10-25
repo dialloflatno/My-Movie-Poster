@@ -3,46 +3,43 @@
 <head>
 	<title>My Movie Poster</title>
 	<link rel="stylesheet" href="style.css">
-	<!-- <link rel=> link js file -->
-	<style>
-		p{
-			/* margin-left: 450px;
-			margin-right: 450px; */
-			text-align: center;
-		}
-		form{
-			text-align: center;
-		}
-		input{
-			text-align: center;
-		}
-		h2{
-			text-align: center;
-		}
-	</style>
+	<script src="script.js"></script>
 </head>
 
 <body>
-	<h1 style="text-align: center;">My Movie Poster!</h1>
-	<p>Have you ever dreamed of becoming your own movie star?</p>
-	<p>Now is your chance!</p>
-	<p>Upload your own picture, edit the layout, and watch the magic happen!</p>
-	<div class="box"></div>
-	
+	<div class="header">
+		<h1 style="text-align: center;">My Movie Poster!</h1>
+		<p id="Intro1">Have you ever dreamed of becoming your own movie star?</p>
+		<p id="intro2">Now is your chance!</p>
+		<p id="intro3">Upload your own picture, edit the layout, and watch the magic happen!</p>
+	</div>
+	<div id="boxes">
+		<div class="display-box"></div>
+		<div class="line-box"></div>
+		<div class="template-box"></div>
+	</div>
+
+	<div>
+		<ul>
+
+		</ul>
+	</div>
+
+	<div class="movie_description"></div>
 		<h2>Enter Movie Details</h2>
 		<form action=# class="comment-box">
 			<input type="text" name="movie_name" placeholder="Movie Title"><div>
 			<input type="text" name="subheading" placeholder="Subheading: Make It Spicey!"><div>
 			<input type="text" name="character_names" placeholder="Character Names"><div>
-			<button tpye="submti">Submit</button><div></div>
+			<button type="submit">Submit</button>
 		</form>
-	<style>
-		.box {
-			width: 250px; height: 350px; border: 1.5px solid black; margin: 0 auto;
-		}
-	</style>
+		
+	<!-- <div class="example image"></div>
+		<style>.box </style>
+	</div> -->
 	
-	<select name="clr" onchange="document.bgColor=this.options[this.selectedIndex].value" size="1">
+
+	<!-- <select name="clr" onchange="document.bgColor=this.options[this.selectedIndex].value" size="1">
 		<br>
 		<option value="black">black
 			<option value="orange">orange
@@ -66,7 +63,7 @@
 							<option value="yellow">yellow
 								<option value="red">red
 									<option value="white">white</option>
-	</select>&nbsp;&nbsp;Text Color
-	<p></p>
+	</select>&nbsp;&nbsp;Text Color -->
+	
 </body>
 </html>
