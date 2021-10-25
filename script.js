@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("form").addEventListener("submit", (e) => {
     e.preventDefault()
@@ -11,3 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     <a href="#">Link 3</a>
   </div>
 </div> */}
+=======
+//  test
+>>>>>>> 6f0743eaacf48b45d2282caa010d629b8ee11b36
