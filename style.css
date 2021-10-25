@@ -41,3 +41,19 @@ h2{
 }
 
 
+#sideBar {
+    display: flex;
+    overflow-x: auto;
+    margin: 1rem 0;
+    max-width: calc(100vw - 2rem);
+  }
+  #sideBAr img {
+    flex: 0 1 auto;
+    height: 150px;
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+  
+  #sideBAr img:last-child {
+    margin-right: 0;
+  }
