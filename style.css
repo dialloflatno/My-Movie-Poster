@@ -1,0 +1,11 @@
+/* .comment-box{
+    top: 80%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 200px;
+
+} */
+.document {
+    color: grey;
+} /*how to change background color?*/
