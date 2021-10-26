@@ -7,28 +7,34 @@
 </head>
 
 <body>
-	<div class="header">
+	<div class="header"><!--Top half of the webpage. Displays selected poster, details, likes.-->
 		<h1 style="text-align: center;">My Movie Poster!</h1>
 		<p id="Intro1">Have you ever dreamed of becoming your own movie star?</p>
 		<p id="intro2">Now is your chance!</p>
 		<p id="intro3">Upload your own picture, edit the layout, and watch the magic happen!</p>
-	</div>
-
-	<div id="boxes">
-		<div class="display-box"></div>
+		<div class="display-box">
 			<img src="display box img" alt="Example Image">
-		<div class="line-box"></div>
-		<div class="template-box"></div>
-			<img src="template image" atl="Your image here">
+		</div>
 	</div>
 
-	<div id="preloaded-movie-posters">
+	
+	<div class="line-box"><!--placeholder for a separating line in the DOM.
+	no need to put anything in here--></div>
+
+	
+	
+
+	<div id="preloaded-movie-posters"><!--Side bar with database posters-->
 		<ul>
 			<!-- list of movie posters that will load on the website  -->
 		</ul>
 	</div>
 
-	<div class="movie_description"></div>
+	<div class="template-box"><!--Container for the example poster that updates while the user enters info into the form-->
+			<img src="template image" atl="Your image here">
+		</div>
+	
+	<div class="movie_description"><!--Container for the form including inputs and dropdowns with the submit button-->
 		<h2>Enter Movie Details</h2>
 		<form action=# class="comment-box">
 			<input type="text" name="movie_name" placeholder="Movie Title"><div>
@@ -42,8 +48,11 @@
 			</select><br>
 			<button type="submit">Submit</button>
 		</form>
-	
-	<div id = sideBar></div>
+	</div>
+
+	<div class="layout-options"><!--Container for the layout image buttons that change the layout of the .template-box elements-->
+
+	</div>
 
 	
 	
