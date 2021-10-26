@@ -1,11 +1,58 @@
-/* .comment-box{
+#intro1{
     top: 80%;
     left: 50%;
     position: absolute;
-    transform: translate(-50%, -50%);
-    width: 200px;
+    /* transform: translate(-50%, -50%); */
+    width: 20px;
 
-} */
+}
 .document {
     color: grey;
 } /*how to change background color?*/
+
+p{
+    margin: -1px;
+    /* margin-bottom: 10px; */
+    text-align: center;
+}
+
+.display-box{
+        width: 250px; height: 350px; border: 1.5px solid black; margin: 15px auto;
+}
+
+.line-box{
+    width: 70%; height: 0px; border: 2px solid gray; margin: 15px auto;
+}
+
+.template-box{
+    width: 250px; height: 350px; border: 1.5px solid black; margin: 15px auto;
+}
+
+form{
+    text-align: center;
+}
+
+input{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+#sideBar {
+    display: flex;
+    overflow-x: auto;
+    margin: 1rem 0;
+    max-width: calc(100vw - 2rem);
+  }
+  #sideBAr img {
+    flex: 0 1 auto;
+    height: 150px;
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+  
+  #sideBAr img:last-child {
+    margin-right: 0;
+  }
