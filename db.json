@@ -1,0 +1,15 @@
+{ 
+
+ "moviePoster" :[ 
+    {
+      "title": "ET.FLATHOME",
+      "img": "./movieImages/et-movie.jpeg",
+      "subtitle":"flat home",
+      "Breif":"look",
+      "production":"kevallehima",
+      "likes":0
+
+    }
+]
+}
+
