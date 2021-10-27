@@ -96,7 +96,7 @@
     font-style: inherit;
     ;
     margin-top: 1px;
-    color: whitesmoke;
+    color: black;
 }
 
 p {
@@ -325,11 +325,13 @@ h2 {
 
 #sideBar {
     display: flex;
-    overflow-x: auto;
-    overflow-y: auto;
+   
     margin: 1rem 0;
-    /* max-width: calc(100vw - 2rem); */
-    max-height: calc(100%);
+    width: 150px;
+    
+    /* position: absolute; */
+    /* top: 0; */
+    /* float: right; */
 }
 
 #sideBAr img {
@@ -352,6 +354,12 @@ h2 {
     height: 100%;
     padding: 20px 0;
     transition: all 0.5s ease;
+    max-height: 100vh;
+    overflow: scroll;
+}
+
+.sideBar ul {
+    list-style-type: none;
 }
 
 #layoutTITLE{

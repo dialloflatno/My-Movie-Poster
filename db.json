@@ -3,12 +3,14 @@
  "moviePoster" :[ 
     {
       "title": "ET.FLATHOME",
+      "subheading":"flat home",
+      "characters":"kevallehima",
       "img": "./movieImages/et-movie.jpeg",
-      "subtitle":"flat home",
-      "Breif":"look",
-      "production":"kevallehima",
-      "likes":0
-
+      "description":"look",
+      "likes":0,
+      "font":"",
+      "color": "",
+      "layout":""
     }
 ]
 }
