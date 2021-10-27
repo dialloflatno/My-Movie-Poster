@@ -240,18 +240,16 @@
 	<div class="movie_description"><!--Container for the form including inputs and dropdowns with the submit button-->
 		<h2 class="mainTEXT">Enter Movie Details</h2>
 		<form action=# class="comment-box">
-			<input type="text" name="movie_name" placeholder="Movie Title"><div>
-			<input type="text" name="subheading" placeholder="Subheading: Make It Spicey!"><div>
-			<input type="text" name="character_names" placeholder="Character Names"><div>
-			<br>
+			<input type="text" id="movie-name" name="movie-name" placeholder="Movie Title"><div>
+			<input type="text" id="subheading-input" name="subheading" placeholder="Subheading: Make It Spicey!"><div>
+			<input type="text" id="character-names" name="character-names" placeholder="Character Names"><div>
+			<input type="text" id="image-url" name="image-url" placeholder="Image Link"><div></div>
+			<input type="text" id="movie-description" name="movie-description" placeholder="Enter Description Here"><div></div>
+				<br>
 			<select name="dropdown" id = "dropDownColors">
-				<option value="1">option 1</option>
 			</select>
-			<br>
 			<select name="dropdown" id ="dropDownFonts">
-				<option value="1">option 1</option>
-			</select>
-			<br>
+			</select><br>
 			<button id="submit" type="submit">Submit</button>
 		</form>
 	</div>
