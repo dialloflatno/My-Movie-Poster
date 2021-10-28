@@ -147,6 +147,7 @@ const getPosters = () => {
 const displayPosters = (data) => {
     data.forEach(poster => {
         const posterDiv = document.createElement('div')
+        const posterName = document.createElement('p')
         try {
             document.querySelector('#uploadIcon').remove()
         } catch {}
@@ -161,6 +162,7 @@ const displayPosters = (data) => {
         posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
         posterDiv.style.display = 'inline-block'
         posterDiv.style.cursor = 'pointer'
+        posterName.innerText = poster.title
         posterDiv.addEventListener('click', () => {
             templateBox.style.backgroundImage = `url(${poster.img})`
             templateBox.style.backgroundSize = 'cover'
@@ -181,7 +183,7 @@ const displayPosters = (data) => {
         posterDiv.addEventListener('mouseout', () => {
             posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.1)'
         })
-        posterList.appendChild(posterDiv)
+        posterList.append(posterDiv, posterName)
     })
 }
 
