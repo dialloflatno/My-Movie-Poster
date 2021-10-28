@@ -207,9 +207,17 @@ p {
 }
 
 #like-bttn {
-    position:absolute;
+    position: absolute;
     top: 92%;
     left: 105%;
+}
+
+#like-num {
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 86.3%;
+    left: 115.5%;
 }
 
 .like {
@@ -459,7 +467,7 @@ h2 {
     font-size: 20px;
     color:rgb(255, 255, 255);
     margin: 10px;
-    margin-top: 650px;
+    margin-top: 850px;
 }
 .layoutOptions{
     background:rgb(228, 73, 2);
@@ -468,7 +476,7 @@ h2 {
     top: 0;
     left: 0;
     width: 225px;
-    height: 1350px;
+    height: 1550px;
     padding: 20px 0;
     
 }
