@@ -22,7 +22,7 @@ const displayMovieName = document.querySelector('#display-title');
 const displayMovieSubheading = document.querySelector('#display-sub');
 const displayMovieCharacters = document.querySelector('#display-char');
 const displayMovieProducer = document.querySelector('#display-producer');
-const displayMovieBrief = document.querySelector('#display-brief');
+const displayMovieBrief = document.querySelector('#display-brief span');
 const displayMovieBriefTitle = document.querySelector('#display-brief-title');
 
 const movieJSON = {
@@ -193,11 +193,15 @@ const displayPosters = (data) => {
             displayMovieSubheading.innerHTML = poster.subheading
             displayMovieCharacters.innerHTML = poster.characters
             displayMovieProducer.innerHTML = poster.producer
-            displayMovieBrief.childNodes[1] = poster.description
+            displayMovieBrief.textContent = poster.description
             displayMovieBriefTitle.textContent = poster.title
-
-            fontDropdown.value = poster.font
-            colorDropdown.value = poster.color
+            displayMovieName.style.color = poster.color
+            displayMovieName.style.fontFamily = poster.font
+            displayMovieSubheading.style.color = poster.color
+            displayMovieCharacters.style.color = poster.color
+            displayMovieProducer.style.color = poster.color
+            // fontDropdown.value = poster.font
+            // colorDropdown.value = poster.color
         })
         posterDiv.addEventListener('mouseover', () => {
             posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
