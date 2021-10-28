@@ -5,12 +5,12 @@
       "subheading": "Lost in Code!",
       "characters": "Ibrahima, Chris",
       "producer": "Obie",
-      "img": "https://www.researchgate.net/profile/Peter-Brusilovsky/publication/220911988/figure/fig1/AS:305396838354946@1449823688432/The-code-of-a-programming-example-is-left-intact-in-WebEx_Q640.jpg",
+      "img": "assets/movieImages/44-men-in-black.jpeg",
       "description": "A story of two programmers in the midst of an epic journey and a glimpse into the challenges they face.",
       "likes": 0,
-      "font": "Arial",
-      "color": "#FFFFFF",
-      "layout": "",
+      "font": "Comic Sans MS",
+      "color": "#008080",
+      "layout": "1",
       "id": 1
     },
     {
@@ -18,12 +18,12 @@
       "subheading": "In crisis",
       "characters": "Ibrahima, Chris",
       "producer": "Obie",
-      "img": "https://www.computerhope.com/jargon/p/program.png",
+      "img": "assets/movieImages/Saving-Private-Ryan.jpeg",
       "description": "A daring adventure after the last code challenge leads the two programmers down an unexpected path.",
       "likes": 0,
       "font": "Trebuchet MS",
       "color": "#00FF00",
-      "layout": "",
+      "layout": "3",
       "id": 2
     },
     {
@@ -31,12 +31,12 @@
       "subheading": "Testing",
       "characters": "Obie",
       "producer": "Ibrahima, Chris",
-      "img": "https://i.pinimg.com/originals/b5/43/82/b54382ed7887c147d8dd6807f7928855.png",
+      "img": "assets/movieImages/american-sniper.jpeg",
       "description": "this is a test",
       "likes": 0,
       "font": "Arial",
-      "color": "#FFFFFF",
-      "layout": "",
+      "color": "#800080",
+      "layout": "2",
       "id": 3
     }
   ],
