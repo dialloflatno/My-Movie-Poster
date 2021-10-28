@@ -49,7 +49,6 @@ const colors = [
     { name: 'Purple', hex: '#800080' },
 ]
 
-
 fonts.forEach(font => {
     const option = document.createElement('option')
     option.innerHTML = font
@@ -188,3 +187,25 @@ const displayPosters = (data) => {
 }
 
 getPosters();
+
+const colors = [
+
+    "White",
+    "Red",
+    "Orange",
+    "Yellow",
+    "Green",
+    "Blue",
+    "Indigo",
+    "Violet",
+    "Black",
+    "Gray",
+    "Silver",
+    "Maroon",
+    "Olive",
+    "Lime",
+    "Aqua",
+    "Teal",
+    "Navy",
+    "Purple",
+]
