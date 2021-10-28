@@ -10,7 +10,7 @@
       "likes": 2,
       "font": "Comic Sans MS",
       "color": "#008080",
-      "layout": "1",
+      "layout": 1,
       "id": 1
     },
     {
@@ -23,7 +23,7 @@
       "likes": 1,
       "font": "Trebuchet MS",
       "color": "#00FF00",
-      "layout": "3",
+      "layout": 0,
       "id": 2
     },
     {
@@ -36,7 +36,7 @@
       "likes": 3,
       "font": "Arial",
       "color": "#800080",
-      "layout": "2",
+      "layout": 2,
       "id": 3
     }
   ],
