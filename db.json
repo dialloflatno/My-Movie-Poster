@@ -39,5 +39,28 @@
       "layout": "",
       "id": 3
     }
+  ],
+  "layouts": [
+    {
+      "id": 1,
+      "style-title": "10%",
+      "style-sub": "21%",
+      "style-char": "80%",
+      "style-producer": "3%"
+    },
+    {
+      "id": 2,
+      "style-title": "75%",
+      "style-sub": "87%",
+      "style-char": "10%",
+      "style-producer": "3%"
+    },
+    {
+      "id": 3,
+      "style-title": "45%",
+      "style-sub": "56%",
+      "style-char": "85%",
+      "style-producer": "39%"
+    }
   ]
 }

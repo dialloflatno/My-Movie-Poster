@@ -1,3 +1,4 @@
+// DECLARE NEEDED VARIABLES AND GRAB ELEMENTS TO WORK FROM
 const movieInput = document.querySelector('#movie-name');
 const subheadingInput = document.querySelector('#subheading-input');
 const characterInput = document.querySelector('#character-names');
@@ -14,9 +15,6 @@ const templateMovieProducer = document.querySelector('#template-producer');
 const fontDropdown = document.querySelector('#dropDownFonts');
 const colorDropdown = document.querySelector('#dropDownColors');
 const posterList = document.querySelector('#poster-list');
-let uploadIcon = document.querySelector('#uploadIcon');
-let templateBox = document.querySelector('.template-box');
-let displayBox = document.querySelector('.display-box');
 const displayImage = document.querySelector('.display-box img');
 const displayMovieName = document.querySelector('#display-title');
 const displayMovieSubheading = document.querySelector('#display-sub');
@@ -24,7 +22,12 @@ const displayMovieCharacters = document.querySelector('#display-char');
 const displayMovieProducer = document.querySelector('#display-producer');
 const displayMovieBrief = document.querySelector('#display-brief');
 const displayMovieBriefTitle = document.querySelector('#display-brief-title');
+const likeButton = document.querySelector("#like-bttn")
+let uploadIcon = document.querySelector('#uploadIcon');
+let templateBox = document.querySelector('.template-box');
+let displayBox = document.querySelector('.display-box');
 
+// TEMPLATE FOR DATABASE POST REQUESTS
 const movieJSON = {
     "title": "",
     "subheading": "",
@@ -38,6 +41,7 @@ const movieJSON = {
     "layout": ""
 }
 
+// SET FONT AND COLOR OPTIONS FOR DROP-DOWN MENUS
 const fonts = ['Arial', 'Comic Sans MS', 'Courier New', 'Georgia', 'Helvetica', 'Impact', 'Lucida Console', 'Lucida Sans Unicode', 'Palatino Linotype', 'Tahoma', 'Times New Roman', 'Trebuchet MS', 'Verdana']
 const colors = [
     { name: 'White', hex: '#FFFFFF' },
@@ -60,6 +64,7 @@ const colors = [
     { name: 'Purple', hex: '#800080' },
 ]
 
+// LOAD DROP-DOWN MENUS WITH OPTIONS
 fonts.forEach(font => {
     const option = document.createElement('option')
     option.innerHTML = font
@@ -74,7 +79,7 @@ colors.forEach(color => {
     colorDropdown.appendChild(option)
 })
 
-//https://image.similarpng.com/very-thumbnail/2021/06/Art-empty-frame-in-golden-on-transparent-background-PNG.png
+// ADD NECESSARY EVENT LISTENERS TO THE DOCUMENT
 imageInput.addEventListener('change', () => {
     templateImage.src = imageInput.value
     templateImage.width = 250
@@ -128,8 +133,30 @@ colorDropdown.addEventListener('change', () => {
     templateMovieProducer.style.color = colorDropdown.value
 })
 
-// prevent default submit
 submitForm.addEventListener('submit', (e) => submitComments(e));
+
+likeButton.addEventListener('click', () => {
+    console.log(event.target.src)
+    if (event.target.src.endsWith('FULL.png')) {
+        event.target.src = './assets/likeButtonheart_EMPTY.png'
+        fetch(`http://localhost:3000/moviePoster/${id}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(CURRENT_OBJECT_ID_LIKES + 1)
+        })
+    } else {
+        event.target.src = 'assets/likeButtonheart_FULL.png'
+        fetch(`http://localhost:3000/moviePoster/${id}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(CURRENT_OBJECT_ID_LIKES - 1)
+        })
+    }
+})
 
 const submitComments = e => {
     e.preventDefault()
@@ -151,6 +178,7 @@ const submitComments = e => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+
         })
 };
 
@@ -196,7 +224,6 @@ const displayPosters = (data) => {
             displayMovieProducer.innerHTML = poster.producer
             displayMovieBrief.childNodes[1] = poster.description
             displayMovieBriefTitle.textContent = poster.title
-
             fontDropdown.value = poster.font
             colorDropdown.value = poster.color
         })
