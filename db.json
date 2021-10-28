@@ -1,17 +1,40 @@
-{ 
-
- "moviePoster" :[ 
+{
+  "moviePoster": [
     {
-      "title": "ET.FLATHOME",
-      "subheading":"flat home",
-      "characters":"kevallehima",
-      "img": "./movieImages/et-movie.jpeg",
-      "description":"look",
-      "likes":0,
-      "font":"",
-      "color": "",
-      "layout":""
+      "title": "Flatiron Adventure",
+      "subheading": "Lost in Code!",
+      "characters": "Ibrahima, Chris",
+      "img": "https://www.researchgate.net/profile/Peter-Brusilovsky/publication/220911988/figure/fig1/AS:305396838354946@1449823688432/The-code-of-a-programming-example-is-left-intact-in-WebEx_Q640.jpg",
+      "description": "A story of two programmers in the midst of an epic journey and a glimpse into the challenges they face.",
+      "likes": 0,
+      "font": "Arial",
+      "color": "#FFFFFF",
+      "layout": "",
+      "id": 1
+    },
+    {
+      "title": "Flatiron Adventure II",
+      "subheading": "In crisis",
+      "characters": "Ibrahima, Chris",
+      "img": "https://www.computerhope.com/jargon/p/program.png",
+      "description": "A daring adventure after the last code challenge leads the two programmers down an unexpected path.",
+      "likes": 0,
+      "font": "Trebuchet MS",
+      "color": "#00FF00",
+      "layout": "",
+      "id": 2
+    },
+    {
+      "title": "Obie's Example",
+      "subheading": "Testing",
+      "characters": "Obie",
+      "img": "https://i.pinimg.com/originals/b5/43/82/b54382ed7887c147d8dd6807f7928855.png",
+      "description": "this is a test",
+      "likes": 0,
+      "font": "Arial",
+      "color": "#FFFFFF",
+      "layout": "",
+      "id": 3
     }
-]
+  ]
 }
-
