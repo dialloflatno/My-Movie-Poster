@@ -224,10 +224,8 @@ const displayPosters = (data) => {
             displayMovieProducer.innerHTML = poster.producer
             displayMovieBrief.textContent = poster.description
             displayMovieBriefTitle.textContent = poster.title
-<<<<<<< HEAD
             fontDropdown.value = poster.font
             colorDropdown.value = poster.color
-=======
             displayMovieName.style.color = poster.color
             displayMovieName.style.fontFamily = poster.font
             displayMovieSubheading.style.color = poster.color
@@ -235,7 +233,6 @@ const displayPosters = (data) => {
             displayMovieProducer.style.color = poster.color
             // fontDropdown.value = poster.font
             // colorDropdown.value = poster.color
->>>>>>> 61e209ff993ddc8e819caf56e9e3431289cc0571
         })
         posterDiv.addEventListener('mouseover', () => {
             posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
