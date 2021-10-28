@@ -1,19 +1,29 @@
 const movieInput = document.querySelector('#movie-name');
 const subheadingInput = document.querySelector('#subheading-input');
 const characterInput = document.querySelector('#character-names');
+const producerInput = document.querySelector('#producer-name');
 const imageInput = document.querySelector('#image-url');
 const submitForm = document.querySelector(".comment-box");
 const submitButton = document.querySelector('#submit-button');
 const templateImage = document.querySelector('.template-box img');
-const templateMovieName = document.querySelector('#MovieTitle');
+const templateMovieName = document.querySelector('#template-title');
 const briefInput = document.querySelector('#movie-description');
-const templateMovieSubheading = document.querySelector('#subheading');
-const templateMovieCharacters = document.querySelector('#Characters');
+const templateMovieSubheading = document.querySelector('#template-sub');
+const templateMovieCharacters = document.querySelector('#template-char');
+const templateMovieProducer = document.querySelector('#template-producer');
 const fontDropdown = document.querySelector('#dropDownFonts');
 const colorDropdown = document.querySelector('#dropDownColors');
 const posterList = document.querySelector('#poster-list');
 let uploadIcon = document.querySelector('#uploadIcon');
 let templateBox = document.querySelector('.template-box');
+let displayBox = document.querySelector('.display-box');
+const displayImage = document.querySelector('.display-box img');
+const displayMovieName = document.querySelector('#display-title');
+const displayMovieSubheading = document.querySelector('#display-sub');
+const displayMovieCharacters = document.querySelector('#display-char');
+const displayMovieProducer = document.querySelector('#display-producer');
+const displayMovieBrief = document.querySelector('#display-brief');
+const displayMovieBriefTitle = document.querySelector('#display-brief-title');
 
 const movieJSON = {
     "title": "",
@@ -86,7 +96,7 @@ subheadingInput.addEventListener('keyup', () => {
     if (subheadingInput.value === '') templateMovieSubheading.innerHTML = 'Subheading'
     else {
         templateMovieSubheading.innerHTML = subheadingInput.value
-        templateMovieSubheading.style.fontFamily = fontDropdown.value
+        // templateMovieSubheading.style.fontFamily = fontDropdown.value
     }
 })
 
@@ -95,7 +105,16 @@ characterInput.addEventListener('keyup', () => {
         templateMovieCharacters.innerHTML = 'Character Names'
     } else {
         templateMovieCharacters.innerHTML = characterInput.value
-        templateMovieCharacters.style.fontFamily = fontDropdown.value
+        // templateMovieCharacters.style.fontFamily = fontDropdown.value
+    }
+})
+
+producerInput.addEventListener('keyup', () => {
+    if (producerInput.value === '') {
+        templateMovieProducer.innerHTML = 'Producer'
+    } else {
+        templateMovieProducer.innerHTML = producerInput.value
+        // templateMovieProducer.style.fontFamily = fontDropdown.value
     }
 })
 
@@ -107,6 +126,7 @@ colorDropdown.addEventListener('change', () => {
     templateMovieName.style.color = colorDropdown.value
     templateMovieSubheading.style.color = colorDropdown.value
     templateMovieCharacters.style.color = colorDropdown.value
+    templateMovieProducer.style.color = colorDropdown.value
 })
 
 // prevent default submit
@@ -163,15 +183,19 @@ const displayPosters = (data) => {
         posterDiv.style.display = 'inline-block'
         posterDiv.style.cursor = 'pointer'
         posterDiv.addEventListener('click', () => {
-            templateBox.style.backgroundImage = `url(${poster.img})`
-            templateBox.style.backgroundSize = 'cover'
-            templateBox.style.width = '250px'
-            templateBox.style.height = '350px'
-            templateBox.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
-            templateBox.style.cursor = 'pointer'
-            templateMovieName.innerHTML = poster.title
-            templateMovieSubheading.innerHTML = poster.subheading
-            templateMovieCharacters.innerHTML = poster.characters
+            displayBox.style.backgroundImage = `url(${poster.img})`
+            displayBox.style.backgroundSize = 'cover'
+            displayBox.style.width = '250px'
+            displayBox.style.height = '350px'
+            displayBox.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
+            displayBox.style.cursor = 'pointer'
+            displayMovieName.innerHTML = poster.title
+            displayMovieSubheading.innerHTML = poster.subheading
+            displayMovieCharacters.innerHTML = poster.characters
+            displayMovieProducer.innerHTML = poster.producer
+            displayMovieBrief.childNodes[1] = poster.description
+            displayMovieBriefTitle.textContent = poster.title
+
             fontDropdown.value = poster.font
             colorDropdown.value = poster.color
         })

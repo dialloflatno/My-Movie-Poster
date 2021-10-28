@@ -107,37 +107,118 @@ p {
 
 .display-box {
     margin-top: 30px;
-    width: 350px;
-    height: 200px;
+    width: 250px;
+    height: 350px;
     border: 1.5ppx;
     margin: 15px auto;
     float: center;
+    background-color: darkgrey;
+    padding: 10px;
+    border-radius: 2px;
+    position: relative;
+}
+#display-title {
+    width: 220px;
+    height: 30px;
+    border: 1.5px;
+    /* margin: 1px auto; */
+    padding-top: 10px;
+    text-align: center;
+    background-color: rgb(142, 147, 153, 0.2);
+    border-radius: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
-#movePlace {
-    margin-top: 1px;
-    margin-left: 1px;
+#display-sub {
+    width: 150px;
+    height: 17px;
+    border: 1.5px;
+    /* margin: 0px auto; */
+    padding: 5px;
+    text-align: center;
+    background-color: rgb(142, 147, 153, 0.2);
+    border-radius: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
-#Brief {
-    float: right;
-    margin-top: -10px auto;
+#display-char {
+    width: 150px;
+    height: 30px;
+    border: 1.5px;
+    /* margin: 215px auto; */
+    padding-top: 15px;
+    text-align: center;
+    background-color: rgb(142, 147, 153, 0.2);
+    border-radius: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#display-producer {
+    width: 150px;
+    height: 15px;
+    border: 1.5px;
+    /* margin: 0px auto; */
+    padding: 5px;
+    text-align: center;
+    background-color: rgb(142, 147, 153, 0.2);
+    border-radius: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+
+#display-brief {
+    /* float: right; */
+    /* margin-top: -10px auto; */
     font-size: 12px;
     color: black;
-    margin-right: -45px;
+    /* margin-right: -45px;
     margin-left: 345px;
     margin-bottom: 30px;
-    margin-top: -180px;
-    border: 1.5px
+    margin-top: -180px; */
+    border: 1.5px;
+    position: absolute;
+    top: 0%;
+    left: 102%;
+    /* transform: translate(-50%, 0); */
+    width: 25vh;
+    height: 325px;
+    overflow: scroll;
+}
+
+#like-bttn {
+    position:absolute;
+    top: 92%;
+    left: 105%;
 }
 
 .like {
     background-color: white;
     float: right;
-    margin-top: 56px;
-    margin-right: 166px;
-    width: 15px;
-    height: 15px;
+    /* margin-top: 56px;
+    margin-right: 166px; */
+    width: 25px;
+    height: 25px;
 }
 
 #displayBOX {
@@ -150,7 +231,7 @@ p {
     height: 0px;
     border: 1px solid gray;
     margin: 15px auto;
-    margin-top: 404px;
+    margin-top: 554px;
 }
 
 .template-box {
@@ -173,7 +254,7 @@ p {
     /* margin: 1px auto; */
     padding-top: 10px;
     text-align: center;
-    background-color: rgb(142, 147, 153);
+    background-color: rgb(142, 147, 153, 0.2);
     border-radius: 9px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -191,12 +272,12 @@ p {
     /* margin: 0px auto; */
     padding: 5px;
     text-align: center;
-    background-color: rgb(142, 147, 153);
+    background-color: rgb(142, 147, 153, 0.2);
     border-radius: 9px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     position: absolute;
-    top: 20%;
+    top: 21%;
     left: 50%;
     transform: translate(-50%, 0);
 }
@@ -207,7 +288,8 @@ p {
     border: 1.5px;
     /* margin: 215px auto; */
     padding-top: 15px;
-    background-color: rgb(142, 147, 153);
+    text-align: center;
+    background-color: rgb(142, 147, 153, 0.2);
     border-radius: 9px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -224,12 +306,12 @@ p {
     /* margin: 0px auto; */
     padding: 5px;
     text-align: center;
-    background-color: rgb(142, 147, 153);
+    background-color: rgb(142, 147, 153, 0.2);
     border-radius: 9px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     position: absolute;
-    top: 5%;
+    top: 3%;
     left: 50%;
     transform: translate(-50%, 0);
 }
