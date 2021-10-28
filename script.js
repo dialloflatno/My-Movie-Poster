@@ -19,6 +19,7 @@ const movieJSON = {
     "title": "",
     "subheading": "",
     "characters": "",
+    "producer": "",
     "img": "",
     "description": "",
     "likes": 0,
