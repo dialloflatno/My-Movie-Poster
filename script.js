@@ -27,6 +27,7 @@ const likesNum = document.querySelector("#like-num")
 const layoutOptions = document.querySelectorAll(".layout-box")
 const completedLikes = [];
 const layouts = [];
+const posterListElements = [];
 let currentDisplay = 0;
 let uploadIcon = document.querySelector('#uploadIcon');
 let templateBox = document.querySelector('.template-box');
@@ -161,7 +162,7 @@ likeButton.addEventListener('click', () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "likes" : parseInt(likesNum.innerText) - 1
+                "likes": parseInt(likesNum.innerText) - 1
             })
         })
         likesNum.innerText = parseInt(likesNum.innerText) - 1
@@ -176,7 +177,7 @@ likeButton.addEventListener('click', () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "likes" : parseInt(likesNum.innerText) + 1
+                "likes": parseInt(likesNum.innerText) + 1
             })
         })
         likesNum.innerText = parseInt(likesNum.innerText) + 1
@@ -213,89 +214,89 @@ const submitComments = e => {
 async function initialize() {
     const getPosters = () => {
         fetch('http://localhost:3000/moviePoster')
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            displayPosters(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                // displayPosters(data)
+                data.forEach(object => displayPosters(object))
+            })
     }
     const getLayouts = () => {
         fetch('http://localhost:3000/layouts')
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            data.forEach(layout => layouts.push(layout))
-        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                data.forEach(layout => layouts.push(layout))
+                posterListElements[0].click()
+            })
     }
-    getPosters();
-    getLayouts();
-
+    getPosters()
+    getLayouts()
 }
 
 
-const displayPosters = (data) => {
-    data.forEach(poster => {
-        const posterDiv = document.createElement('div')
-        const posterName = document.createElement('p')
-        try {
-            document.querySelector('#uploadIcon').remove()
-        } catch {}
-        posterDiv.classList.add('poster-div')
-        posterDiv.id = `id-${poster.id}`
-        posterDiv.style.backgroundImage = `url(${poster.img})`
-        posterDiv.style.backgroundSize = 'cover'
-        posterDiv.style.backgroundPosition = 'center'
-        posterDiv.style.width = '250px'
-        posterDiv.style.height = '350px'
-        posterDiv.style.margin = '10px'
-        posterDiv.style.borderRadius = '10px'
-        posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
-        posterDiv.style.display = 'inline-block'
-        posterDiv.style.cursor = 'pointer'
-        posterDiv.liked = false;
-        posterDiv.likes = poster.likes;
-        console.log(poster.id, poster.likes)
-        posterName.innerText = poster.title
-        posterDiv.addEventListener('click', () => {
-            displayBox.style.backgroundImage = `url(${poster.img})`
-            displayBox.style.backgroundSize = 'cover'
-            displayBox.style.width = '250px'
-            displayBox.style.height = '350px'
-            displayBox.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
-            displayBox.style.cursor = 'pointer'
-            displayMovieName.innerHTML = poster.title
-            displayMovieSubheading.innerHTML = poster.subheading
-            displayMovieCharacters.innerHTML = poster.characters
-            displayMovieProducer.innerHTML = poster.producer
-            displayMovieBrief.textContent = poster.description
-            displayMovieBriefTitle.textContent = poster.title
-            fontDropdown.value = poster.font
-            colorDropdown.value = poster.color
-            displayMovieName.style.color = poster.color
-            displayMovieName.style.fontFamily = poster.font
-            displayMovieSubheading.style.color = poster.color
-            displayMovieCharacters.style.color = poster.color
-            displayMovieProducer.style.color = poster.color
-            currentDisplay = poster.id;
-            likesNum.innerText = posterDiv.likes;
+const displayPosters = (poster) => {
+    // data.forEach(poster => {
+    const posterDiv = document.createElement('div')
+    const posterName = document.createElement('p')
+    posterDiv.classList.add('poster-div')
+    posterDiv.id = `id-${poster.id}`
+    posterDiv.style.backgroundImage = `url(${poster.img})`
+    posterDiv.style.backgroundSize = 'cover'
+    posterDiv.style.backgroundPosition = 'center'
+    posterDiv.style.width = '250px'
+    posterDiv.style.height = '350px'
+    posterDiv.style.margin = '10px'
+    posterDiv.style.borderRadius = '10px'
+    posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
+    posterDiv.style.display = 'inline-block'
+    posterDiv.style.cursor = 'pointer'
+    posterDiv.liked = false;
+    posterDiv.likes = poster.likes;
+    // console.log(poster.id, poster.likes)
+    posterName.innerText = poster.title
+    posterDiv.addEventListener('click', () => {
+        displayBox.style.backgroundImage = `url(${poster.img})`
+        displayBox.style.backgroundSize = 'cover'
+        displayBox.style.width = '250px'
+        displayBox.style.height = '350px'
+        displayBox.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
+        displayBox.style.cursor = 'pointer'
+        displayMovieName.innerHTML = poster.title
+        displayMovieSubheading.innerHTML = poster.subheading
+        displayMovieCharacters.innerHTML = poster.characters
+        displayMovieProducer.innerHTML = poster.producer
+        displayMovieBrief.textContent = poster.description
+        displayMovieBriefTitle.textContent = poster.title
+        displayMovieName.style.color = poster.color
+        displayMovieName.style.fontFamily = poster.font
+        displayMovieSubheading.style.color = poster.color
+        displayMovieCharacters.style.color = poster.color
+        displayMovieProducer.style.color = poster.color
+        fontDropdown.value = poster.font
+        colorDropdown.value = poster.color
+        currentDisplay = poster.id;
+        likesNum.innerText = posterDiv.likes;
 
-            displayMovieName.style.top = layouts[poster.layout - 1]["style-title"]
-            displayMovieSubheading.style.top = layouts[poster.layout - 1]["style-sub"]
-            displayMovieCharacters.style.top = layouts[poster.layout - 1]["style-char"]
-            displayMovieProducer.style.top = layouts[poster.layout - 1]["style-producer"]
+        displayMovieName.style.top = layouts[poster.layout - 1]["style-title"]
+        displayMovieSubheading.style.top = layouts[poster.layout - 1]["style-sub"]
+        displayMovieCharacters.style.top = layouts[poster.layout - 1]["style-char"]
+        displayMovieProducer.style.top = layouts[poster.layout - 1]["style-producer"]
 
-            if (posterDiv.liked === true) likeButton.src = "./assets/likeButtonheart_FULL.png"
-            else likeButton.src = "./assets/likeButtonheart_EMPTY.png"
-        })
-        posterDiv.addEventListener('mouseover', () => {
-            posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
-        }
-        )
-        posterDiv.addEventListener('mouseout', () => {
-            posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.1)'
-        })
-        posterList.append(posterDiv, posterName)
+        if (posterDiv.liked === true) likeButton.src = "./assets/likeButtonheart_FULL.png"
+        else likeButton.src = "./assets/likeButtonheart_EMPTY.png"
     })
+    posterDiv.addEventListener('mouseover', () => {
+        posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
+    }
+    )
+    posterDiv.addEventListener('mouseout', () => {
+        posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.1)'
+    })
+    posterList.append(posterDiv, posterName)
+    posterListElements.push(posterDiv)
 }
 
 initialize();
+
+    // posterListElements[0].click()
