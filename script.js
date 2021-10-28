@@ -1,3 +1,4 @@
+// DECLARE NEEDED VARIABLES AND GRAB ELEMENTS TO WORK FROM
 const movieInput = document.querySelector('#movie-name');
 const subheadingInput = document.querySelector('#subheading-input');
 const characterInput = document.querySelector('#character-names');
@@ -6,17 +7,14 @@ const imageInput = document.querySelector('#image-url');
 const submitForm = document.querySelector(".comment-box");
 const submitButton = document.querySelector('#submit-button');
 const templateImage = document.querySelector('.template-box img');
-const templateMovieName = document.querySelector('#template-title');
 const briefInput = document.querySelector('#movie-description');
+const templateMovieName = document.querySelector('#template-title');
 const templateMovieSubheading = document.querySelector('#template-sub');
 const templateMovieCharacters = document.querySelector('#template-char');
 const templateMovieProducer = document.querySelector('#template-producer');
 const fontDropdown = document.querySelector('#dropDownFonts');
 const colorDropdown = document.querySelector('#dropDownColors');
 const posterList = document.querySelector('#poster-list');
-let uploadIcon = document.querySelector('#uploadIcon');
-let templateBox = document.querySelector('.template-box');
-let displayBox = document.querySelector('.display-box');
 const displayImage = document.querySelector('.display-box img');
 const displayMovieName = document.querySelector('#display-title');
 const displayMovieSubheading = document.querySelector('#display-sub');
@@ -24,7 +22,18 @@ const displayMovieCharacters = document.querySelector('#display-char');
 const displayMovieProducer = document.querySelector('#display-producer');
 const displayMovieBrief = document.querySelector('#display-brief span');
 const displayMovieBriefTitle = document.querySelector('#display-brief-title');
+const likeButton = document.querySelector("#like-bttn")
+const likesNum = document.querySelector("#like-num")
+const layoutOptions = document.querySelectorAll(".layout-box")
+const completedLikes = [];
+const layouts = [];
+const posterListElements = [];
+let currentDisplay = 0;
+let uploadIcon = document.querySelector('#uploadIcon');
+let templateBox = document.querySelector('.template-box');
+let displayBox = document.querySelector('.display-box');
 
+// TEMPLATE FOR DATABASE POST REQUESTS
 const movieJSON = {
     "title": "",
     "subheading": "",
@@ -38,6 +47,7 @@ const movieJSON = {
     "layout": ""
 }
 
+// SET FONT AND COLOR OPTIONS FOR DROP-DOWN MENUS
 const fonts = ['Arial', 'Comic Sans MS', 'Courier New', 'Georgia', 'Helvetica', 'Impact', 'Lucida Console', 'Lucida Sans Unicode', 'Palatino Linotype', 'Tahoma', 'Times New Roman', 'Trebuchet MS', 'Verdana']
 const colors = [
     { name: 'White', hex: '#FFFFFF' },
@@ -60,7 +70,7 @@ const colors = [
     { name: 'Purple', hex: '#800080' },
 ]
 
-
+// LOAD DROP-DOWN MENUS WITH OPTIONS
 fonts.forEach(font => {
     const option = document.createElement('option')
     option.innerHTML = font
@@ -75,13 +85,24 @@ colors.forEach(color => {
     colorDropdown.appendChild(option)
 })
 
-//https://image.similarpng.com/very-thumbnail/2021/06/Art-empty-frame-in-golden-on-transparent-background-PNG.png
+layoutOptions.forEach(layout => layout.addEventListener("click", () => {
+    const layoutChoice = event.target.parentNode.id.slice(7) - 1;
+    movieJSON.layout = parseInt(event.target.parentNode.id.slice(7));
+    templateMovieName.style.top = layouts[layoutChoice]["style-title"]
+    templateMovieSubheading.style.top = layouts[layoutChoice]["style-sub"]
+    templateMovieCharacters.style.top = layouts[layoutChoice]["style-char"]
+    templateMovieProducer.style.top = layouts[layoutChoice]["style-producer"]
+}))
+
+// ADD NECESSARY EVENT LISTENERS TO THE DOCUMENT
 imageInput.addEventListener('change', () => {
-    templateImage.src = imageInput.value
-    templateImage.width = 250
-    templateImage.height = 350
-    templateImage.style.zIndex = '-1'
-    templateImage.style.position = 'absolute'
+    // templateImage.src = imageInput.value
+    templateBox.style.backgroundImage = `url('${imageInput.value}')`
+    templateBox.style.backgroundSize = 'cover'
+    // templateImage.width = 250
+    // templateImage.height = 350
+    // templateImage.style.zIndex = '-1'
+    // templateImage.style.position = 'absolute'
 })
 
 movieInput.addEventListener('keyup', () => {
@@ -129,8 +150,42 @@ colorDropdown.addEventListener('change', () => {
     templateMovieProducer.style.color = colorDropdown.value
 })
 
-// prevent default submit
 submitForm.addEventListener('submit', (e) => submitComments(e));
+
+likeButton.addEventListener('click', () => {
+    console.log(event.target.src)
+    if (event.target.src.endsWith('FULL.png')) {
+        event.target.src = './assets/likeButtonheart_EMPTY.png'
+        fetch(`http://localhost:3000/moviePoster/${currentDisplay}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "likes": parseInt(likesNum.innerText) - 1
+            })
+        })
+        likesNum.innerText = parseInt(likesNum.innerText) - 1
+        document.querySelector(`#id-${currentDisplay}`).liked = false;
+        document.querySelector(`#id-${currentDisplay}`).likes = likesNum.innerText;
+        console.log(document.querySelector(`#id-${currentDisplay}`).likes);
+    } else {
+        event.target.src = 'assets/likeButtonheart_FULL.png'
+        fetch(`http://localhost:3000/moviePoster/${currentDisplay}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "likes": parseInt(likesNum.innerText) + 1
+            })
+        })
+        likesNum.innerText = parseInt(likesNum.innerText) + 1
+        document.querySelector(`#id-${currentDisplay}`).liked = true;
+        document.querySelector(`#id-${currentDisplay}`).likes = likesNum.innerText;
+        console.log(document.querySelector(`#id-${currentDisplay}`).likes);
+    }
+})
 
 const submitComments = e => {
     e.preventDefault()
@@ -152,66 +207,96 @@ const submitComments = e => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+
         })
 };
 
-const getPosters = () => {
-    fetch('http://localhost:3000/moviePoster')
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            displayPosters(data)
-        })
+async function initialize() {
+    const getPosters = () => {
+        fetch('http://localhost:3000/moviePoster')
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                // displayPosters(data)
+                data.forEach(object => displayPosters(object))
+            })
+    }
+    const getLayouts = () => {
+        fetch('http://localhost:3000/layouts')
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                data.forEach(layout => layouts.push(layout))
+                posterListElements[0].click()
+            })
+    }
+    getPosters()
+    getLayouts()
 }
 
 
-const displayPosters = (data) => {
-    data.forEach(poster => {
-        const posterDiv = document.createElement('div')
-        try {
-            document.querySelector('#uploadIcon').remove()
-        } catch {}
-        posterDiv.classList.add('poster-div')
-        posterDiv.style.backgroundImage = `url(${poster.img})`
-        posterDiv.style.backgroundSize = 'cover'
-        posterDiv.style.backgroundPosition = 'center'
-        posterDiv.style.width = '250px'
-        posterDiv.style.height = '350px'
-        posterDiv.style.margin = '10px'
-        posterDiv.style.borderRadius = '10px'
-        posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
-        posterDiv.style.display = 'inline-block'
-        posterDiv.style.cursor = 'pointer'
-        posterDiv.addEventListener('click', () => {
-            displayBox.style.backgroundImage = `url(${poster.img})`
-            displayBox.style.backgroundSize = 'cover'
-            displayBox.style.width = '250px'
-            displayBox.style.height = '350px'
-            displayBox.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
-            displayBox.style.cursor = 'pointer'
-            displayMovieName.innerHTML = poster.title
-            displayMovieSubheading.innerHTML = poster.subheading
-            displayMovieCharacters.innerHTML = poster.characters
-            displayMovieProducer.innerHTML = poster.producer
-            displayMovieBrief.textContent = poster.description
-            displayMovieBriefTitle.textContent = poster.title
-            displayMovieName.style.color = poster.color
-            displayMovieName.style.fontFamily = poster.font
-            displayMovieSubheading.style.color = poster.color
-            displayMovieCharacters.style.color = poster.color
-            displayMovieProducer.style.color = poster.color
-            // fontDropdown.value = poster.font
-            // colorDropdown.value = poster.color
-        })
-        posterDiv.addEventListener('mouseover', () => {
-            posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
-        }
-        )
-        posterDiv.addEventListener('mouseout', () => {
-            posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.1)'
-        })
-        posterList.appendChild(posterDiv)
+const displayPosters = (poster) => {
+    // data.forEach(poster => {
+    const posterDiv = document.createElement('div')
+    const posterName = document.createElement('p')
+    posterDiv.classList.add('poster-div')
+    posterDiv.id = `id-${poster.id}`
+    posterDiv.style.backgroundImage = `url(${poster.img})`
+    posterDiv.style.backgroundSize = 'cover'
+    posterDiv.style.backgroundPosition = 'center'
+    posterDiv.style.width = '250px'
+    posterDiv.style.height = '350px'
+    posterDiv.style.margin = '10px'
+    posterDiv.style.borderRadius = '10px'
+    posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
+    posterDiv.style.display = 'inline-block'
+    posterDiv.style.cursor = 'pointer'
+    posterDiv.liked = false;
+    posterDiv.likes = poster.likes;
+    // console.log(poster.id, poster.likes)
+    posterName.innerText = poster.title
+    posterDiv.addEventListener('click', () => {
+        displayBox.style.backgroundImage = `url(${poster.img})`
+        displayBox.style.backgroundSize = 'cover'
+        displayBox.style.width = '250px'
+        displayBox.style.height = '350px'
+        displayBox.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
+        displayBox.style.cursor = 'pointer'
+        displayMovieName.innerHTML = poster.title
+        displayMovieSubheading.innerHTML = poster.subheading
+        displayMovieCharacters.innerHTML = poster.characters
+        displayMovieProducer.innerHTML = poster.producer
+        displayMovieBrief.textContent = poster.description
+        displayMovieBriefTitle.textContent = poster.title
+        displayMovieName.style.color = poster.color
+        displayMovieName.style.fontFamily = poster.font
+        displayMovieSubheading.style.color = poster.color
+        displayMovieCharacters.style.color = poster.color
+        displayMovieProducer.style.color = poster.color
+        fontDropdown.value = poster.font
+        colorDropdown.value = poster.color
+        currentDisplay = poster.id;
+        likesNum.innerText = posterDiv.likes;
+
+        displayMovieName.style.top = layouts[poster.layout - 1]["style-title"]
+        displayMovieSubheading.style.top = layouts[poster.layout - 1]["style-sub"]
+        displayMovieCharacters.style.top = layouts[poster.layout - 1]["style-char"]
+        displayMovieProducer.style.top = layouts[poster.layout - 1]["style-producer"]
+
+        if (posterDiv.liked === true) likeButton.src = "./assets/likeButtonheart_FULL.png"
+        else likeButton.src = "./assets/likeButtonheart_EMPTY.png"
     })
+    posterDiv.addEventListener('mouseover', () => {
+        posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
+    }
+    )
+    posterDiv.addEventListener('mouseout', () => {
+        posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.1)'
+    })
+    posterList.append(posterDiv, posterName)
+    posterListElements.push(posterDiv)
 }
 
-getPosters();
+initialize();
+
+    // posterListElements[0].click()
