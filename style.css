@@ -109,7 +109,8 @@ p {
     margin-top: 30px;
     width: 250px;
     height: 350px;
-    border: 1.5ppx;
+    /* border: 1.5px;
+    border-color:black; */
     margin: 15px auto;
     float: center;
     background-color: darkgrey;
