@@ -187,25 +187,3 @@ const displayPosters = (data) => {
 }
 
 getPosters();
-
-const colors = [
-
-    "White",
-    "Red",
-    "Orange",
-    "Yellow",
-    "Green",
-    "Blue",
-    "Indigo",
-    "Violet",
-    "Black",
-    "Gray",
-    "Silver",
-    "Maroon",
-    "Olive",
-    "Lime",
-    "Aqua",
-    "Teal",
-    "Navy",
-    "Purple",
-]
