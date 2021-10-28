@@ -23,6 +23,9 @@ const displayMovieProducer = document.querySelector('#display-producer');
 const displayMovieBrief = document.querySelector('#display-brief span');
 const displayMovieBriefTitle = document.querySelector('#display-brief-title');
 const likeButton = document.querySelector("#like-bttn")
+const likesNum = document.querySelector("#like-num")
+const completedLikes = [];
+let currentDisplay = 0;
 let uploadIcon = document.querySelector('#uploadIcon');
 let templateBox = document.querySelector('.template-box');
 let displayBox = document.querySelector('.display-box');
@@ -139,22 +142,34 @@ likeButton.addEventListener('click', () => {
     console.log(event.target.src)
     if (event.target.src.endsWith('FULL.png')) {
         event.target.src = './assets/likeButtonheart_EMPTY.png'
-        fetch(`http://localhost:3000/moviePoster/${id}`, {
+        fetch(`http://localhost:3000/moviePoster/${currentDisplay}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(CURRENT_OBJECT_ID_LIKES + 1)
+            body: JSON.stringify({
+                "likes" : parseInt(likesNum.innerText) - 1
+            })
         })
+        likesNum.innerText = parseInt(likesNum.innerText) - 1
+        document.querySelector(`#id-${currentDisplay}`).liked = false;
+        document.querySelector(`#id-${currentDisplay}`).likes = likesNum.innerText;
+        console.log(document.querySelector(`#id-${currentDisplay}`).likes);
     } else {
         event.target.src = 'assets/likeButtonheart_FULL.png'
-        fetch(`http://localhost:3000/moviePoster/${id}`, {
+        fetch(`http://localhost:3000/moviePoster/${currentDisplay}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(CURRENT_OBJECT_ID_LIKES - 1)
+            body: JSON.stringify({
+                "likes" : parseInt(likesNum.innerText) + 1
+            })
         })
+        likesNum.innerText = parseInt(likesNum.innerText) + 1
+        document.querySelector(`#id-${currentDisplay}`).liked = true;
+        document.querySelector(`#id-${currentDisplay}`).likes = likesNum.innerText;
+        console.log(document.querySelector(`#id-${currentDisplay}`).likes);
     }
 })
 
@@ -200,6 +215,7 @@ const displayPosters = (data) => {
             document.querySelector('#uploadIcon').remove()
         } catch {}
         posterDiv.classList.add('poster-div')
+        posterDiv.id = `id-${poster.id}`
         posterDiv.style.backgroundImage = `url(${poster.img})`
         posterDiv.style.backgroundSize = 'cover'
         posterDiv.style.backgroundPosition = 'center'
@@ -210,6 +226,9 @@ const displayPosters = (data) => {
         posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
         posterDiv.style.display = 'inline-block'
         posterDiv.style.cursor = 'pointer'
+        posterDiv.liked = false;
+        posterDiv.likes = poster.likes;
+        console.log(poster.id, poster.likes)
         posterName.innerText = poster.title
         posterDiv.addEventListener('click', () => {
             displayBox.style.backgroundImage = `url(${poster.img})`
@@ -231,6 +250,10 @@ const displayPosters = (data) => {
             displayMovieSubheading.style.color = poster.color
             displayMovieCharacters.style.color = poster.color
             displayMovieProducer.style.color = poster.color
+            currentDisplay = poster.id;
+            likesNum.innerText = posterDiv.likes;
+            if (posterDiv.liked === true) likeButton.src = "./assets/likeButtonheart_FULL.png"
+            else likeButton.src = "./assets/likeButtonheart_EMPTY.png"
             // fontDropdown.value = poster.font
             // colorDropdown.value = poster.color
         })
