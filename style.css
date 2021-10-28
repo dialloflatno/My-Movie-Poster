@@ -163,33 +163,14 @@ p {
     background-color: darkgrey;
     padding: 10px;
     border-radius: 2px;
+    position: relative;
 }
 
-#uploadIcon {
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    margin-bottom: 200px;
-    float: left;
-    margin-left: -38px;
-}
-
-#uploadIconLayout {
-    width: 140px;
-    height: 140px;
-    position: absolute;
-    margin-bottom: 304px;
-    float: left;
-    margin-left: -33px;
-    padding-left: -3px;
-    padding-right: 17px;
-}
-
-#MovieTitle {
+#template-title {
     width: 220px;
     height: 30px;
     border: 1.5px;
-    margin: 1px auto;
+    /* margin: 1px auto; */
     padding-top: 10px;
     text-align: center;
     background-color: rgb(142, 147, 153);
@@ -197,32 +178,60 @@ p {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: white;
-    ;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
-#subheading {
+#template-sub {
     width: 150px;
     height: 17px;
     border: 1.5px;
-    margin: 0px auto;
+    /* margin: 0px auto; */
     padding: 5px;
     text-align: center;
     background-color: rgb(142, 147, 153);
     border-radius: 9px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
-#Characters {
+#template-char {
     width: 150px;
     height: 30px;
     border: 1.5px;
-    margin: 215px auto;
+    /* margin: 215px auto; */
     padding-top: 15px;
     background-color: rgb(142, 147, 153);
     border-radius: 9px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#template-producer {
+    width: 150px;
+    height: 15px;
+    border: 1.5px;
+    /* margin: 0px auto; */
+    padding: 5px;
+    text-align: center;
+    background-color: rgb(142, 147, 153);
+    border-radius: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 
@@ -391,10 +400,34 @@ h2 {
     background-color: darkgrey;
     padding: 10px;
     border-radius: 2px;
-
-
-
-
-
 }
 
+#option-1{ 
+    position: relative;
+}
+
+#option-1 img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#option-2{ 
+    position: relative;
+}
+
+#option-2 img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#option-3{ 
+    position: relative;
+}
+
+#option-3 img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
