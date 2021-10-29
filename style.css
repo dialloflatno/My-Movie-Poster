@@ -272,11 +272,8 @@ p {
     position: relative;
 }
 #backgroundViewport{
-<<<<<<< HEAD
-=======
-    margin-left: 167px;
-    width: 1034px;
->>>>>>> a33040b0759503d5e9cea7f7870dde6c99af28b4
+    /* margin-left: 167px; */
+    /* width: 1034px; */
     height: 449px;
     padding: 2px;
     padding-bottom: 19px;
@@ -671,10 +668,7 @@ h2 {
 }
 
 #footer{
-<<<<<<< HEAD
-=======
-    width: 1500px;
->>>>>>> a33040b0759503d5e9cea7f7870dde6c99af28b4
+    /* width: 1500px; */
     height: 40px;
     background-color: #0f0b08;
 }
