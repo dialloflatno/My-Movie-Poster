@@ -1,38 +1,39 @@
 .header {
-    margin: 0px;
+    margin-top: -36px;
     padding: 5px;
     color: #bc7c2f;
     background: black;
     height: 210px;
 }
 
-body{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
 #intro1 {
     color: whitesmoke;
-    margin-top: -19px;
+    margin-top: 19px;
     background: rgb(7, 4, 0);
-    padding: 6px;
-    
+    font-family: alternate-gothic-no-1-d, "Futura Condensed", "Arial Narrow", Arial, sans-serif;
 }
 
 #intro2 {
+    font-family: alternate-gothic-no-1-d, "Futura Condensed", "Arial Narrow", Arial, sans-serif;
     font-size: 30px;
     font-weight: bolder;
     color: rgb(255, 255, 255);
-    margin-top: -15px;
-    background: rgb(228, 73, 2);
+    margin-top: -55px;
+    padding: 2px;
     padding: 3px;
-   
+    float: center;
+    height: 40px;
 }
 
 #intro3 {
     font-size: 15px;
-    color: rgb(129, 79, 14);
-    background: darkorange;
-    padding: 5px;
-  
+    margin-top: -20px;
+    margin-bottom: 38px;
+    color: rgb(255, 255, 255);
+    background: #886146;
+    padding: 11px;
+    font-weight: bolder;
+    font-family: sans-serif;
 }
 
 #logo {
@@ -51,14 +52,14 @@ body{
 }
 
 #innerTextLogo {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: alternate-gothic-no-1-d, "Futura Condensed", "Arial Narrow", Arial, sans-serif;
     color: cornsilk;
     position: absolute;
     margin: 0px auto;
 }
 
 .innerLogo {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: alternate-gothic-no-1-d, "Futura Condensed", "Arial Narrow", Arial, sans-serif;
     color: cornsilk;
     position: absolute;
     margin-top: 30px;
@@ -93,13 +94,13 @@ body{
 }
 
 .mainTEXT {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: alternate-gothic-no-1-d, "Futura Condensed", "Arial Narrow", Arial, sans-serif;
     text-align: center;
-    font: size 1130px;
+    font: size 130px;
     font-style: inherit;
-    ;
-    margin-top: 1px;
-    color: black;
+    margin-top: 65px;
+    font-variant-caps: unicase;
+    color: white;
 }
 
 p {
@@ -121,6 +122,7 @@ p {
     border-radius: 2px;
     position: relative;
 }
+
 #display-title {
     width: 220px;
     height: 30px;
@@ -190,7 +192,6 @@ p {
     transform: translate(-50%, 0);
 }
 
-
 #display-brief {
     /* float: right; */
     /* margin-top: -10px auto; */
@@ -214,6 +215,7 @@ p {
     position: absolute;
     top: 92%;
     left: 105%;
+    background: transparent;
 }
 
 #like-num {
@@ -233,17 +235,28 @@ p {
     height: 25px;
 }
 
+#backImg {
+    float: center;
+    text-align: center;
+    margin-left: -420px;
+    width: 1049px;
+    height: 446px;
+    float: left;
+    margin-top: -42px;
+}
+
 #displayBOX {
     height: 200px;
     width: 20px;
 }
 
 .line-box {
+    opacity: 50%;
     width: 50%;
     height: 0px;
     border: 1px solid gray;
     margin: 15px auto;
-    margin-top: 554px;
+    margin-top: 60px;
 }
 
 .template-box {
@@ -258,6 +271,16 @@ p {
     border-radius: 2px;
     position: relative;
 }
+#backgroundViewport{
+    margin-left: 167px;
+    width: 1034px;
+    height: 449px;
+    padding: 2px;
+    padding-bottom: 19px;
+    background-color: tomato;
+
+}
+
 
 #template-title {
     width: 220px;
@@ -328,7 +351,6 @@ p {
     transform: translate(-50%, 0);
 }
 
-
 #MovieTitleLayOut {
     width: 100px;
     height: 4px;
@@ -368,7 +390,8 @@ p {
     padding: 3px;
     margin-left: 63px;
     position: absolute;
-    padding-bottom: 4px; ;
+    padding-bottom: 4px;
+    ;
     background-color: rgb(142, 147, 153);
     border-radius: 8px;
     font-family: Arial, Helvetica, sans-serif;
@@ -404,7 +427,6 @@ h2 {
 }
 
 #dropDownFonts {
-    
     font-family: Arial, Helvetica, sans-serif;
     color: seashell;
     padding: 5px;
@@ -428,10 +450,8 @@ h2 {
 
 #sideBar {
     display: flex;
-   
     margin: 1rem 0;
     width: 150px;
-    
     /* position: absolute; */
     /* top: 0; */
     /* float: right; */
@@ -448,135 +468,164 @@ h2 {
     margin-right: 0;
 }
 
-.sideBar{
-    background: rgb(227, 230, 232);
+.sideBar {
+    text-align: center;
+    background: rgb(13, 5, 0);
     position: fixed;
     top: 0;
     right: 0;
-    width: 355px;
+    width: 235px;
     height: 100%;
-    padding: 20px 0;
+    padding: 20px;
     transition: all 0.5s ease;
     max-height: 100vh;
+    border: rgb(0, 0, 0);
+    border-width: 10px;
     overflow: scroll;
+    font-family: sans-serif;
+    font-weight: bold;
+    font: white;
+    color: white;
 }
 
 .sideBar ul {
     list-style-type: none;
+    margin-left: -24px;
 }
 
-#layoutTITLE{
-
+#layoutTITLE {
+    word-break: break-all;
+    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    color:rgb(255, 255, 255);
-    margin: 10px;
-    margin-top: 850px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    margin: 9px;
+    margin-top: 913px;
+    background-color: brown;
+    padding: 13px;
+    width: 100%;
+    margin-left: -25px;
 }
-.layoutOptions{
-    background:rgb(228, 73, 2);
+
+.layoutOptions {
+    background: rgb(228, 73, 2);
     border-radius: 3px;
-    position:absolute;
+    position: absolute;
     top: 0;
     left: 0;
     width: 225px;
-    height: 1550px;
+    height: 2050px;
     padding: 20px 0;
-    
 }
 
-#genreBOX{
+.comment-box {
+    background-color: #a5292a;
+    padding: 70px;
+    margin-top: -140px;
 
-    background:rgb(139, 45, 1);
+}
+#mainDetails{
+    font-family: alternate-gothic-no-1-d, "Futura Condensed", "Arial Narrow", Arial, sans-serif;
+    text-align: center;
+    font: size 230px;
+    font-style: inherit;
+    margin-top: 5px;
+    padding-bottom: 32px;
+    font-variant-caps: unicase;
+    color: white;
+
+}
+#genreBOX {
+    background: rgb(139, 45, 1);
     border-radius: 3px;
-    position:absolute;
+    position: absolute;
     top: 0;
     left: 0;
     width: 225px;
-    height: 455px;
+    height: 602px;
     padding: 20px 0;
-
 }
 
-#genreOptions{
-      color: aliceblue;
-    float:center;
+#genreOptions {
+    color: aliceblue;
+    float: center;
     font-family: Arial, Helvetica, sans-serif;
     padding: 2px;
-    font-weight:bolder;
-    width:203px;
-  
+    font-weight: bolder;
+    width: 203px;
 }
-#gOptionTitle{
 
+#gOptionTitle {
     float: center;
 }
-.gOptionTabs{
+
+.gOptionTabs {
     float: center;
     font-family: Arial, Helvetica, sans-serif;
     padding: 5px;
-    margin:9px;
-    margin-left:2px;
-    position:relative;
-    font-weight:bolder;
+    margin: 9px;
+    margin-left: 2px;
+    position: relative;
+    font-weight: bolder;
     font-style: normal;
     background-color: orangered;
 }
 
-
-#shareICONS{
-
-    background:rgb(179, 60, 5);
-    border-radius: 3px;
-    position:absolute;
+#shareICONS {
+    background: rgb(179, 60, 5);
+    position: absolute;
     left: 0;
     width: 225px;
     height: 35px;
+    padding: 14px 0;
+    padding-top: 1px;
+    padding-bottom: 17px;
+    margin-top: 582px;
+}
+
+.iconBOX {
+    background: rgb(134, 89, 69);
+    position: absolute;
+    left: 0;
+    width: 25px;
+    height: 40px;
     padding: 20px 0;
-    margin-top: 390px;
-
-}
-.iconBOX{
-
-    background:rgb(134, 89, 69);
-    border-radius: 3px;
-    position:absolute;
-    left: 0;
-    width: 35px;
-    height: 15px;
-    padding: 10px 0;
     margin-left: 20px;
+    margin-top: 11px;
 }
-#iconBOXfb{
-    background:rgb(134, 89, 69);
-    border-radius: 3px;
-    position:absolute;
-    left: 0;
-    width: 35px;
-    height: 15px;
-    padding: 10px 0;
-    margin-left: 20px;}
-#iconBOXpn{
-    background:rgb(134, 89, 69);
-    border-radius: 3px;
-    position:absolute;
-    left: 0;
-    width: 35px;
-    height: 15px;
-    padding: 10px 0;
-    margin-left: 20px;}
-#iconBOXtwt{
-    background:rgb(134, 89, 69);
-    border-radius: 3px;
-    position:absolute;
-    left: 0;
-    width: 35px;
-    height: 15px;
-    padding: 10px 0;
-    margin-left: 1
-    0px;}
 
-.layout-box{
+#iconBOXfb {
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    width: 35px;
+    height: 15px;
+    margin-left: 20px;
+    margin-top: 9px;
+    margin-left: 19px;
+}
+
+#iconBOXpn {
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    width: 35px;
+    height: 15px;
+    margin-left: 150px;
+    margin-top: 6.5px;
+}
+
+#iconBOXtwt {
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    width: 35px;
+    height: 15px;
+    margin-left: 87px;
+    margin-top: 9px;
+}
+
+.layout-box {
     width: 120px;
     height: 140px;
     border: 1.5px;
@@ -588,32 +637,44 @@ h2 {
     border-radius: 2px;
 }
 
-#option-1{ 
+#option-1 {
     position: relative;
 }
 
-#option-1 img{
+#option-1 img {
     position: absolute;
     top: 0;
     left: 0;
 }
 
-#option-2{ 
+#option-2 {
     position: relative;
 }
 
-#option-2 img{
+#option-2 img {
     position: absolute;
     top: 0;
     left: 0;
 }
 
-#option-3{ 
+#option-3 {
     position: relative;
 }
 
-#option-3 img{
+#option-3 img {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+#footer{
+    width: 1500px;
+    height: 40px;
+    background-color: #0f0b08;
+}
+#footertext{
+
+    text-align: center;
+    color:azure;
+    padding: 10px;
 }
