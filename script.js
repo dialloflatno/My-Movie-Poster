@@ -247,6 +247,7 @@ const displayPosters = (poster) => {
     posterDiv.style.width = '250px'
     posterDiv.style.height = '350px'
     posterDiv.style.margin = '10px'
+    posterDiv.style.marginright = '20px;'
     posterDiv.style.borderRadius = '10px'
     posterDiv.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.5)'
     posterDiv.style.display = 'inline-block'
