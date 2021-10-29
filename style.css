@@ -1,3 +1,7 @@
+body {
+    background: black;
+}
+
 .header {
     margin-top: -36px;
     padding: 5px;
