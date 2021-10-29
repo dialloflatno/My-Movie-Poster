@@ -272,8 +272,6 @@ p {
     position: relative;
 }
 #backgroundViewport{
-    margin-left: 167px;
-    width: 1034px;
     height: 449px;
     padding: 2px;
     padding-bottom: 19px;
@@ -668,7 +666,6 @@ h2 {
 }
 
 #footer{
-    width: 1500px;
     height: 40px;
     background-color: #0f0b08;
 }
